@@ -1,59 +1,111 @@
 # What is Amazon VPC?<a name="what-is-amazon-vpc"></a>
 
-Amazon Virtual Private Cloud \(Amazon VPC\) enables you to launch AWS resources into a virtual network that you've defined\. This virtual network closely resembles a traditional network that you'd operate in your own data center, with the benefits of using the scalable infrastructure of AWS\.
-
-The following diagram shows an example VPC\. The VPC has one subnet in each of the Availability Zones in the Region, EC2 instances in each subnet, and an internet gateway\.
+* Amazon Virtual Private Cloud \(Amazon VPC\)
+  * -- enables you to -- launch AWS resources | virtual network / you've defined
+    * virtual network == (closely) traditional network | your own data center + benefits of using scalable infrastructure of AWS
+  * == 👀1 subnet / EACH Availability Zones | Region + EC2 instances | EACH subnet + internet gateway👀
 
 ![\[A VPC with an internet gateway and subnets in three Availability Zones.\]](http://docs.aws.amazon.com/vpc/latest/userguide/images/how-it-works.png)
 
 ## Features<a name="amazon-vpc-features"></a>
 
-The following features help you configure a VPC to provide the connectivity that your applications need:
+* allows
+  * configuring a VPC / provide the connectivity / your applications need
 
 **Virtual private clouds \(VPC\)**  
-A [VPC](configure-your-vpc.md) is a virtual network that closely resembles a traditional network that you'd operate in your own data center\. After you create a VPC, you can add subnets\.
+* [VPC](configure-your-vpc.md)
+  * once you create a VPC -> you can add subnets
 
 **Subnets**  
-A [subnet](configure-subnets.md) is a range of IP addresses in your VPC\. A subnet must reside in a single Availability Zone\. After you add subnets, you can deploy AWS resources in your VPC\.
+* [subnet](configure-subnets.md)
+  * == range of IP addresses | your VPC
+  * 👀must reside | 1! Availability Zone 👀
+  * once you add subnets -> you can deploy AWS resources | your VPC
 
 **IP addressing**  
-You can assign [IP addresses](vpc-ip-addressing.md), both IPv4 and IPv6, to your VPCs and subnets\. You can also bring your public IPv4 and IPv6 GUA addresses to AWS and allocate them to resources in your VPC, such as EC2 instances, NAT gateways, and Network Load Balancers\.
+* [IP addresses](vpc-ip-addressing.md) / you -- can assign to -- 
+  * your VPCs and subnets
+    * IPv4
+    * IPv6
+  * your VPC, such as EC2 instances, NAT gateways, and Network Load Balancers
+    * public IPv4
+    * IPv6 GUA addresses 
 
 **Routing**  
-Use [route tables](VPC_Route_Tables.md) to determine where network traffic from your subnet or gateway is directed\.
+* [route tables](VPC_Route_Tables.md)
+  * allows
+    * determining where network traffic / from your subnet or gateway -- is -- directed
 
 **Gateways and endpoints**  
-A [gateway](extend-intro.md) connects your VPC to another network\. For example, use an [internet gateway](VPC_Internet_Gateway.md) to connect your VPC to the internet\. Use a [VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html) to connect to AWS services privately, without the use of an internet gateway or NAT device\.
+* [gateway](extend-intro.md)
+  * connects your VPC -- to -> ANOTHER network
+    * _Example1:_ [internet gateway](VPC_Internet_Gateway.md) to connect your VPC -- to the -- internet
+    * 👀if you want to connect to AWS services privately / NO use an internet gateway or NAT device -> use a [VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html) 👀
 
 **Peering connections**  
-Use a [VPC peering connection](https://docs.aws.amazon.com/vpc/latest/peering/) to route traffic between the resources in two VPCs\.
+* see [VPC peering connection](https://docs.aws.amazon.com/vpc/latest/peering/)
+* uses
+  * route traffic between the VPC1's resource -- & -- VPC2's resource
 
 **Traffic Mirroring**  
-[Copy network traffic](https://docs.aws.amazon.com/vpc/latest/mirroring/) from network interfaces and send it to security and monitoring appliances for deep packet inspection\.
+* see [Copy network traffic](https://docs.aws.amazon.com/vpc/latest/mirroring/)
+* -- from -- network interfaces
+* uses
+  * -- send it to -- security & monitoring appliances
+    * Reason: 🧠 deep packet inspection 🧠
 
 **Transit gateways**  
-Use a [transit gateway](extend-tgw.md), which acts as a central hub, to route traffic between your VPCs, VPN connections, and AWS Direct Connect connections\.
+* see [transit gateway](extend-tgw.md)
+* uses
+  * central hub / -- route traffic between -- your
+    * VPCs,
+    * VPN connections
+    * AWS Direct Connect connections
 
 **VPC Flow Logs**  
-A [flow log](flow-logs.md) captures information about the IP traffic going to and from network interfaces in your VPC\.
+* see [flow log](flow-logs.md)
+* allows
+  * capturing information -- about the -- IP traffic / going to and from network interfaces | your VPC
 
 **VPN connections**  
-Connect your VPCs to your on\-premises networks using [AWS Virtual Private Network \(AWS VPN\)](vpn-connections.md)\.
+* see [AWS Virtual Private Network \(AWS VPN\)](vpn-connections.md)
+* uses
+  * connect your VPCs -- to your -- on\-premises networks 
 
 ## Getting started with Amazon VPC<a name="getting-started"></a>
 
-Your AWS account includes a [default VPC](default-vpc.md) in each AWS Region\. Your default VPCs are configured such that you can immediately start launching and connecting to EC2 instances\. For more information, see [Get started with Amazon VPC](vpc-getting-started.md)\.
-
-You can choose to create additional VPCs with the subnets, IP addresses, gateways and routing that you need\. For more information, see [Create a VPC](create-vpc.md)\.
+* 👀[default VPC](default-vpc.md) / EACH AWS Region 👀
+  * configured / you can immediately start, about EC2 instances 
+    * launching
+    * connecting
+  * see [Get started with Amazon VPC](vpc-getting-started.md)
+* see [Create a VPC](create-vpc.md)
 
 ## Working with Amazon VPC<a name="VPCInterfaces"></a>
 
-You can create and manage your VPCs using any of the following interfaces:
-+ **AWS Management Console** — Provides a web interface that you can use to access your VPCs\.
-+ **AWS Command Line Interface \(AWS CLI\)** — Provides commands for a broad set of AWS services, including Amazon VPC, and is supported on Windows, Mac, and Linux\. For more information, see [AWS Command Line Interface](https://aws.amazon.com/cli/)\.
-+ **AWS SDKs** — Provides language\-specific APIs and takes care of many of the connection details, such as calculating signatures, handling request retries, and error handling\. For more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs)\.
-+ **Query API** — Provides low\-level API actions that you call using HTTPS requests\. Using the Query API is the most direct way to access Amazon VPC, but it requires that your application handle low\-level details such as generating the hash to sign the request, and error handling\. For more information, see [Amazon VPC actions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html) in the *Amazon EC2 API Reference*\.
+* ways to manage your VPCs:
+  + **AWS Management Console**
+  + **AWS CLI**
+    + see [AWS Command Line Interface](https://aws.amazon.com/cli/)
+  + **AWS SDKs**
+    + see [AWS SDKs](http://aws.amazon.com/tools/#SDKs)
+  + **Query API**
+    + == low\-level API actions / you call -- via -- HTTPS requests
+    + 👀MOST direct way -- to access -- Amazon VPC👀
+    + requirements
+      + your application handle low-level details
+        + _Example1:_ generating the hash -- to sign -- the request
+        + _Example2:_ error handling
+    + see [Amazon VPC actions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html)
 
 ## Pricing for Amazon VPC<a name="pricing"></a>
 
-There's no additional charge for using a VPC\. There are charges for some VPC components, such as NAT gateways, IP Address Manager, traffic mirroring, Reachability Analyzer, and Network Access Analyzer\. For more information, see [Amazon VPC Pricing](http://aws.amazon.com/vpc/pricing/)\.
+* 👀if you use VPC -> NO additional charges 👀
+* if you use VPC components -> charges
+  * _Example of these VPC components:
+    * NAT gateways,
+    * IP Address Manager,
+    * traffic mirroring,
+    * Reachability Analyzer,
+    * Network Access Analyzer
+* see [Amazon VPC Pricing](http://aws.amazon.com/vpc/pricing/)
